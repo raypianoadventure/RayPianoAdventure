@@ -37,9 +37,9 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
-            backgroundImage: 'url(RayPianoAdventure/raymond-portrait.jpg)',
+            backgroundImage: 'url(/RayPianoAdventure/raymond-portrait.jpg)',
             backgroundPosition: 'center 30%',
-            filter: 'grayscale(30%)'
+            filter: 'grayscale(10%)'
           }}
         ></div>
         <div className="absolute inset-0 bg-black/40 z-10"></div>
