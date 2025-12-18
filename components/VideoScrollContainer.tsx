@@ -113,7 +113,7 @@ export default function VideoScrollContainer({ videos }: VideoScrollContainerPro
                     {/* Easy Access Buttons */}
                     <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
                       <div className="text-sm text-gray-400 mb-1 font-medium">
-                        📎 Easy Access for Teacher:
+                        📎 Youtube details:
                       </div>
                       <div className="flex flex-col gap-2">
                         <CopyButton 
