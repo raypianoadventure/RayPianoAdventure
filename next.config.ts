@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/RayPianoAdventure',
-  assetPrefix: '/RayPianoAdventure',
+  basePath: '/RayPianoAdventure/',
+  assetPrefix: '/RayPianoAdventure/',
 };
 
 export default nextConfig;
