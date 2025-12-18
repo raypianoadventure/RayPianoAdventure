@@ -37,7 +37,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
-            backgroundImage: 'url(/raymond-portrait.jpg)',
+            backgroundImage: 'url(/public/raymond-portrait.jpg)',
             backgroundPosition: 'center 30%',
             filter: 'grayscale(30%)'
           }}
@@ -57,7 +57,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Raymond
+            Raymond Zhou
           </motion.h1>
           <motion.p 
             className="text-2xl md:text-3xl text-purple-200 mb-8 font-light"
@@ -77,6 +77,19 @@ export default function Home() {
               className="inline-block px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
             >
               Discover My Journey
+            </a>
+          </motion.div>
+          <br/>
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <a 
+              href="#videos" 
+              className="inline-block px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              Performance Gallery
             </a>
           </motion.div>
         </motion.div>
