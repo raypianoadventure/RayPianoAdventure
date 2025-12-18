@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath: '/RayPianoAdventure',
-  assetPrefix: '/RayPianoAdventure,
+  assetPrefix: '/RayPianoAdventure',
 };
 
 export default nextConfig;
