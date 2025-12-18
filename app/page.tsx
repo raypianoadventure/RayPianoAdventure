@@ -8,21 +8,21 @@ export default function Home() {
   const categories = [
     {
       title: 'Solo',
-      description: 'Individual piano performances showcasing technical mastery and artistic expression',
+      description: "A curated collection of Raymond's piano performances from competitions",
       icon: Music,
       href: '/videos/solo',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
       title: 'Duet',
-      description: 'Collaborative four-hand piano performances with fellow musicians',
+      description: "Raymond's Collaborative four-hand piano performances with fellow musicians",
       icon: Users,
       href: '/videos/duet',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'Concerto',
-      description: 'Performances with orchestra, demonstrating ensemble artistry',
+      description: "Raymond's performances featuring orchestral collaborations and works with accompaniment",
       icon: Music2,
       href: '/videos/concerto',
       gradient: 'from-orange-500 to-red-500'
@@ -65,7 +65,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            Young Pianist & Musical Artist
+            Young Pianist & Composer
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -25,17 +25,17 @@ export default async function VideoCategory({ params }: PageProps) {
   const categoryInfo = {
     solo: {
       title: 'Solo Performances',
-      description: 'Individual piano performances showcasing technical mastery and artistic expression',
+      description: "A curated collection of Raymond's piano performances from competitions",
       gradient: 'from-purple-500 to-pink-500'
     },
     duet: {
       title: 'Duet Performances',
-      description: 'Collaborative four-hand piano performances with fellow musicians',
+      description: "Raymond's Collaborative four-hand piano performances with fellow musicians",
       gradient: 'from-blue-500 to-cyan-500'
     },
     concerto: {
       title: 'Concerto Performances',
-      description: 'Performances with orchestra, demonstrating ensemble artistry',
+      description: "Raymond's performances featuring orchestral collaborations and works with accompaniment",
       gradient: 'from-orange-500 to-red-500'
     }
   };
