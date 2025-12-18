@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Raymond's Piano Adventures",
-  description: "All about Raymond's Piano Adventures - Solo, Duet, and Concerto Performances",
+  title: "Raymond - Young Pianist",
+  description: "Raymond's Piano Adventures - Solo, Duet, and Concerto Performances",
 };
 
 export default function RootLayout({

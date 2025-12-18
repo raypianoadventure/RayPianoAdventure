@@ -1,11 +1,7 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft, Calendar, ExternalLink } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { getVideosByCategory } from '@/lib/videos';
-import { use } from 'react';
-import CopyButton from '@/components/CopyButton';
+import VideoScrollContainer from '@/components/VideoScrollContainer';
 
 interface PageProps {
   params: Promise<{
@@ -13,24 +9,33 @@ interface PageProps {
   }>;
 }
 
-export default function VideoCategory({ params }: PageProps) {
-  const { category } = use(params);
+// Generate static params for all categories
+export async function generateStaticParams() {
+  return [
+    { category: 'solo' },
+    { category: 'duet' },
+    { category: 'concerto' }
+  ];
+}
+
+export default async function VideoCategory({ params }: PageProps) {
+  const { category } = await params;
   const videos = getVideosByCategory(category);
   
   const categoryInfo = {
     solo: {
       title: 'Solo Performances',
-      description: "Raymond's individual piano performances",
+      description: 'Individual piano performances showcasing technical mastery and artistic expression',
       gradient: 'from-purple-500 to-pink-500'
     },
     duet: {
       title: 'Duet Performances',
-      description: "Raymond's collaborative four-hand piano performances",
+      description: 'Collaborative four-hand piano performances with fellow musicians',
       gradient: 'from-blue-500 to-cyan-500'
     },
     concerto: {
       title: 'Concerto Performances',
-      description: 'Performances with orchestra',
+      description: 'Performances with orchestra, demonstrating ensemble artistry',
       gradient: 'from-orange-500 to-red-500'
     }
   };
@@ -50,96 +55,22 @@ export default function VideoCategory({ params }: PageProps) {
             Back to Home
           </Link>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div>
             <div className={`inline-block bg-gradient-to-r ${info.gradient} text-transparent bg-clip-text mb-4`}>
               <h1 className="text-5xl md:text-6xl font-bold">{info.title}</h1>
             </div>
-            <p className="text-xl text-gray-300 max-w-3xl">{info.description}</p>
-          </motion.div>
+            <p className="text-xl text-gray-300 max-w-3xl mb-4">{info.description}</p>
+            <p className="text-sm text-gray-400 flex items-center gap-2">
+              <span>💡 Tip: Scroll horizontally to browse all videos →</span>
+            </p>
+          </div>
         </div>
       </header>
 
-      {/* Video Grid */}
+      {/* Horizontal Scroll Section */}
       <section className="py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {videos.map((video, index) => {
-              const youtubeUrl = `https://www.youtube.com/watch?v=${video.youtubeId}`;
-              
-              return (
-                <motion.div
-                  key={video.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="group"
-                >
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:border-white/20">
-                    {/* Video Embed */}
-                    <div className="relative aspect-video bg-black">
-                      <iframe
-                        src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                        title={video.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full"
-                      />
-                    </div>
-                    
-                    {/* Video Info */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-                        {video.title}
-                      </h3>
-                      <p className="text-gray-400 mb-4 leading-relaxed">
-                        {video.description}
-                      </p>
-                      <div className="flex items-center text-sm text-gray-500 mb-4">
-                        <Calendar className="w-4 h-4 mr-2" />
-                        {new Date(video.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
-                      </div>
-                      
-                      {/* Easy Access Buttons */}
-                      <div className="flex flex-col gap-2 pt-4 border-t border-white/10">
-                        <div className="text-sm text-gray-400 mb-1 font-medium">
-                          📎 YouTube video details:
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                          <CopyButton 
-                            text={youtubeUrl} 
-                            label="Copy YouTube Link"
-                          />
-                          <a
-                            href={youtubeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-all duration-200 hover:scale-105 text-sm font-medium"
-                          >
-                            <ExternalLink className="w-4 h-4" />
-                            Open in YouTube
-                          </a>
-                        </div>
-                        <div className="mt-2 p-3 bg-white/5 rounded-lg">
-                          <div className="text-xs text-gray-400 mb-1">Direct Link:</div>
-                          <div className="text-xs text-purple-300 break-all font-mono">
-                            {youtubeUrl}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+          <VideoScrollContainer videos={videos} />
 
           {videos.length === 0 && (
             <div className="text-center py-20">
