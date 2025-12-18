@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Music, Users, Music2 } from 'lucide-react';
+import { getAssetPath } from '@/lib/utils';
 
 export default function Home() {
   const categories = [
@@ -37,7 +38,7 @@ export default function Home() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15"
           style={{
-            backgroundImage: 'url(/public/raymond-portrait.jpg)',
+            backgroundImage: `url(${getAssetPath('/raymond-portrait.jpg')})`,
             backgroundPosition: 'center 30%',
             filter: 'grayscale(30%)'
           }}
@@ -141,7 +142,7 @@ export default function Home() {
       </section>
 
       {/* Video Categories Section */}
-      <section className="py-20 px-4">
+      <section id="videos" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <motion.h2 
             className="text-5xl font-bold text-white mb-16 text-center"
