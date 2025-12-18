@@ -118,7 +118,7 @@ export default function Home() {
             <h2 className="text-5xl font-bold text-white mb-8 text-center">About Raymond Zhou</h2>
             <div className="prose prose-lg prose-invert max-w-none">
               <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                Raymond Zhou is an 11-year-old pianist and composer who truly enjoys learning, exploring, and expressing himself through music. He began piano lessons at the age of four, and over the years, music has grown into a central part of his daily life.
+                Raymond Zhou is an 11-year-old pianist and composer who truly enjoys learning, exploring, and expressing himself through music. He began piano lessons at the age of four with his teacher Tatiana Sharapova, and over the years, music has grown into a central part of his daily life.
               </p>
               <p className="text-xl text-gray-300 leading-relaxed mb-6">
                 Raymond has completed Repertoire Piano of Royal Conservatory of Music (RCM) Level 10 Repertoire Examination in October 2024, with score 50.5/56. He enjoys working on a wide variety of repertoire and is especially interested in developing musical depth, expression, and personal interpretation.
